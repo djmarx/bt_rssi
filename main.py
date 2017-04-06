@@ -3,12 +3,13 @@ import time
 import sys
 from datetime import datetime
 
-BT_ADDR = 'C8:A8:23:EE:14:61'  # You can put your Bluetooth address here 
+BT_ADDR = 'C8:A8:23:EE:14:61'  # Enter your bluetooth address here!
+
+# -------------------- Do not Edit Anything Below this line!!! -------------------- #
+
 NUM_LOOP = 2
 records = []
 
-def print_usage():
-    print ("Usage: python test_address.py <bluetooth-address> [number-of-requests]")
 
 def write(records, count):
     f = open("records.txt", "a+") #open records for append. If not present create
@@ -18,6 +19,7 @@ def write(records, count):
 
 def main():
 
+    time.sleep(10)
     addr = BT_ADDR
     num = NUM_LOOP
     count = 0
@@ -28,6 +30,7 @@ def main():
         record = (btrssi.get_rssi(), current_time)
         records.append(record)
         count += 1
+        time.sleep(.5)
     write(records, count)
 
 
