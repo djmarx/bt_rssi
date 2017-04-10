@@ -3,9 +3,13 @@ import time
 import sys
 from datetime import datetime
 
-BT_ADDR = 'C8:A8:23:EE:14:61'  # Enter your bluetooth address here!
 
-# -------------------- Do not Edit Anything Below this line!!! -------------------- #
+#////////////////////////////////
+BT_ADDR = 'C8:A8:23:EE:14:61'#/// Enter your bluetooth address here!
+#////////////////////////////////
+
+
+# ----------------------- DO NOT EDIT ANYTHING BELOW THIS LINE --------------------------- #
 
 NUM_LOOP = 2
 records = []
@@ -20,6 +24,7 @@ def write(records, count):
 def main():
 
     time.sleep(10)
+    start_time = time.now
     addr = BT_ADDR
     num = NUM_LOOP
     count = 0
