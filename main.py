@@ -1,7 +1,7 @@
 from bt_proximity import BluetoothRSSI
 import time
 import sys
-from datetime import datetime
+import datetime
 
 
 #////////////////////////////////
@@ -21,17 +21,22 @@ def write(records, count):
         f.write(str(records[i][0]) + "," + str(records[i][1]) + '\n')
     f.close()
 
+def time_diff(start_time):
+    current_time = datetime.datetime.now()
+    diff = current_time - start_time
+    return str(diff)
+
 def main():
 
     time.sleep(10)
-    start_time = time.now
+    start_time = datetime.datetime.now()
     addr = BT_ADDR
     num = NUM_LOOP
     count = 0
 
     while(count < num):      
         btrssi = BluetoothRSSI(addr=addr)
-        current_time = str(datetime.now().strftime('%H:%M:%S.%f')) #create current time
+        current_time = time_diff(start_time)
         record = (btrssi.get_rssi(), current_time)
         records.append(record)
         count += 1
